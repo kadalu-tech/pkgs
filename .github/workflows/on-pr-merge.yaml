@@ -11,7 +11,7 @@ on:
 
 jobs:
   devel-tag-push:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     # TODO: Review the below list of dependencies
