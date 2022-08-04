@@ -6,47 +6,50 @@ MOANA_BRANCH=0.5.5
 GLUSTERFS_BRANCH=kadalu_1
 DISTRO_VERSION=20.04
 DISTRO=ubuntu
-VERSION=0.5.5
-MAJOR_VERSION=0
+VERSION=1.0.0
+MAJOR_VERSION=1
+PKG_KADALU_STORAGE_MANAGER=kadalu-storage-manager
+PKG_KADALU_STORAGE=kadalu-storage
 
 rm -rf build
 mkdir -p build
 
 # Clone and Checkout GlusterFS
-git clone https://github.com/kadalu/glusterfs.git build/glusterfs-${VERSION}
-cd build/glusterfs-${VERSION}
+git clone https://github.com/kadalu/glusterfs.git build/${PKG_KADALU_STORAGE}-${VERSION}
+cd build/${PKG_KADALU_STORAGE}-${VERSION}
 git checkout -b ${GLUSTERFS_BRANCH} origin/${GLUSTERFS_BRANCH}
 cd ../../
 
 # Clone and Checkout Moana
-git clone https://github.com/kadalu/moana.git build/moana-${VERSION}
-cd build/moana-${VERSION}
-git fetch --all --tags
-git checkout -b ${MOANA_BRANCH} tags/${MOANA_BRANCH}
+git clone https://github.com/kadalu/moana.git build/${PKG_KADALU_STORAGE_MANAGER}-${VERSION}
+cd build/${PKG_KADALU_STORAGE_MANAGER}-${VERSION}
+# TODO: Enable this later. Build from main branch for now
+# git fetch --all --tags
+# git checkout -b ${MOANA_BRANCH} tags/${MOANA_BRANCH}
 cd ../../
 
 # Create tar
 cd build/
-tar cvzf moana-${VERSION}.tar.gz moana-${VERSION}
-tar cvzf glusterfs-${VERSION}.tar.gz glusterfs-${VERSION}
+tar cvzf ${PKG_KADALU_STORAGE_MANAGER}-${VERSION}.tar.gz ${PKG_KADALU_STORAGE_MANAGER}-${VERSION}
+tar cvzf ${PKG_KADALU_STORAGE}-${VERSION}.tar.gz ${PKG_KADALU_STORAGE}-${VERSION}
 cd ..
 
 # Copy Debian meta files
-cp -r build/moana-${VERSION}/packaging/moana/debian build/moana-${VERSION}/
-cp -r build/moana-${VERSION}/packaging/glusterfs/debian build/glusterfs-${VERSION}/
+cp -r build/${PKG_KADALU_STORAGE_MANAGER}-${VERSION}/packaging/moana/debian build/${PKG_KADALU_STORAGE_MANAGER}-${VERSION}/
+cp -r build/${PKG_KADALU_STORAGE_MANAGER}-${VERSION}/packaging/glusterfs/debian build/${PKG_KADALU_STORAGE}-${VERSION}/
 
 # Overwrite the Changelog file
-cp changelogs/moana/changelog-${VERSION} build/moana-${VERSION}/debian/changelog
-cp changelogs/glusterfs/changelog-${VERSION} build/glusterfs-${VERSION}/debian/changelog
+cp changelogs/moana/changelog-${VERSION} build/${PKG_KADALU_STORAGE_MANAGER}-${VERSION}/debian/changelog
+cp changelogs/glusterfs/changelog-${VERSION} build/${PKG_KADALU_STORAGE}-${VERSION}/debian/changelog
 
 # Build Moana deb packages
-cd build/moana-${VERSION}/
+cd build/${PKG_KADALU_STORAGE_MANAGER}-${VERSION}/
 debmake -b":python3"
 debuild -eVERSION=${VERSION}
 cd ../../
 
 # Build GlusterFS deb packages
-cd build/glusterfs-${VERSION}/
+cd build/${PKG_KADALU_STORAGE}-${VERSION}/
 debmake -b":python3"
 debuild
 cd ../../
