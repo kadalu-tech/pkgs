@@ -1,17 +1,18 @@
 Package: kadalu-storage-client
 Source: glusterfs
-Version: 0.5.4-1
+Version: 0.5.5-1
 Architecture: amd64
 Maintainer: Kadalu Software Private Limited <packaging@kadalu.tech>
 Installed-Size: 16
 Pre-Depends: dpkg (>= 1.15.6~)
-Depends: fuse, kadalu-storage-common (>= 0.5.4-1), python3
+Depends: fuse, kadalu-storage-common (>= 0.5.5-1), python3
 Conflicts: glusterfs-client
-Filename: ./kadalu-storage-client_0.5.4-1_amd64.deb
-Size: 4160
-MD5sum: e334dde5b0f731561dc2d084bfad18bc
-SHA1: 86a5258b1d3cbf77735323f8e4fc90846bd096b3
-SHA256: 400a7f5278c11297fa7863a74cec5a9b27943f85895e04e6102aa7753b9776e3
+Replaces: kadalu-storage-client
+Filename: ./kadalu-storage-client_0.5.5-1_amd64.deb
+Size: 4172
+MD5sum: f9e56e337e41523a62a1fd643c93cfd8
+SHA1: 87acae2d93ea2a72d79e7fdf78d0f6cfbcefd39b
+SHA256: 7f1624a873cb80d5f2754882c1c51920adaaed049b75b3b5ddcc4ba5d905c4e6
 Section: admin
 Priority: optional
 Homepage: http://www.kadalu.tech
@@ -20,20 +21,19 @@ Description: clustered file-system (client package)
 
 Package: kadalu-storage-common
 Source: glusterfs
-Version: 0.5.4-1
+Version: 0.5.5-1
 Architecture: amd64
 Maintainer: Kadalu Software Private Limited <packaging@kadalu.tech>
 Installed-Size: 15927
 Pre-Depends: dpkg (>= 1.15.6~)
 Depends: attr, kadalu-storage-manager, libacl1-dev, libgoogle-perftools-dev, psmisc, python3-jwt, python3-prettytable, python3-requests, libacl1 (>= 2.2.23), libaio1 (>= 0.3.93), libc6 (>= 2.28), libssl1.1 (>= 1.1.0), libtcmalloc-minimal4, liburcu6 (>= 0.11.1), libuuid1 (>= 2.16), libxml2 (>= 2.7.4), zlib1g (>= 1:1.1.4)
 Conflicts: glusterfs-common, libglusterfs-dev, libglusterfs0
-Breaks: kadalu-storage-server
-Replaces: kadalu-storage-server, libglusterfs-dev, libglusterfs0
-Filename: ./kadalu-storage-common_0.5.4-1_amd64.deb
-Size: 2961984
-MD5sum: ffa5310ff6b3100a2935f811721da359
-SHA1: a5e45f43910fb77d4703d01403d1d54b7ec03714
-SHA256: a93d4456a847bf437d2e79c1e90fa2e618de9faf56ba43f553a2cd0b63b68270
+Replaces: kadalu-storage-common
+Filename: ./kadalu-storage-common_0.5.5-1_amd64.deb
+Size: 2961976
+MD5sum: 86c56e7e281f3dbffa71a3b2599d25b9
+SHA1: 2d9658646fac67f410669e3ceb7f87da83e105b4
+SHA256: a70bbf39d8025d85b52340f0e57e7882778dc1751e7d43e629c8c1eee22161e0
 Section: libs
 Priority: optional
 Homepage: http://www.kadalu.tech
@@ -44,18 +44,18 @@ Description: Kadalu-Storage common libraries and translator modules
 
 Package: kadalu-storage-dbg
 Source: glusterfs
-Version: 0.5.4-1
+Version: 0.5.5-1
 Architecture: amd64
 Maintainer: Kadalu Software Private Limited <packaging@kadalu.tech>
 Installed-Size: 17419
 Pre-Depends: dpkg (>= 1.15.6~)
-Depends: kadalu-storage-client (= 0.5.4-1)
+Depends: kadalu-storage-client (= 0.5.5-1)
 Conflicts: glusterfs-dbg
-Filename: ./kadalu-storage-dbg_0.5.4-1_amd64.deb
-Size: 16341532
-MD5sum: 6764eb9b1860699d43e52b8acd896eb5
-SHA1: 3feaf6de1bb565dfcf642a5442b79d3c8ea65146
-SHA256: 7d252d6dff2c0e881be103f9a42ba3fa9bcd41a5c1839ade7e41523428e5b630
+Filename: ./kadalu-storage-dbg_0.5.5-1_amd64.deb
+Size: 16341528
+MD5sum: 6900e60d4d86d34fabe7c8ce541e5e5c
+SHA1: 3e4256fa7a102d8fa8037ba9d5ebcac15a44d1a5
+SHA256: 4cb193d143fd5feadb761ec5170d85aa86a17137278285f986624c855037b4a6
 Section: debug
 Priority: extra
 Homepage: http://www.kadalu.tech
@@ -65,16 +65,16 @@ Build-Ids: 04d0737920553a481e9508e0eee9fabfc35ef380 05fa60b6f453761e654babdd046f
 
 Package: kadalu-storage-manager
 Source: moana
-Version: 0.5.4-1
+Version: 0.5.5-1
 Architecture: amd64
 Maintainer: Kadalu Technologies Private Limited <packaging@kadalu.tech>
 Installed-Size: 2275
 Depends: libc6 (>= 2.29), libevent-2.1-7 (>= 2.1.8-stable), libgcc-s1 (>= 3.3), libpcre3, libsqlite3-0 (>= 3.6.11), libssl1.1 (>= 1.1.1), libxml2 (>= 2.7.4), libyaml-0-2, zlib1g (>= 1:1.1.4)
-Filename: ./kadalu-storage-manager_0.5.4-1_amd64.deb
-Size: 689040
-MD5sum: d9e0126f72d42a3a041dadd188f5df22
-SHA1: b39cf30722abc75a0c1084be49cf4055674371a3
-SHA256: 34612856c88aeef6d260938f7121c2c8334f8de442f80710edb3605348abaaf7
+Filename: ./kadalu-storage-manager_0.5.5-1_amd64.deb
+Size: 688936
+MD5sum: e46fbc4567f2ba4753158df17f4dad7a
+SHA1: 4fada8c4c65e3494996913073a5da95198ebfddc
+SHA256: 31d2b74be45a80049f0ef8dd0dd4f7ea1f4add52f3afc2e316d4366b49670f24
 Section: main
 Priority: optional
 Multi-Arch: foreign
@@ -84,18 +84,19 @@ Description: Kadalu Storage Manager is a frontend for the Kadalu Storage.
 
 Package: kadalu-storage-server
 Source: glusterfs
-Version: 0.5.4-1
+Version: 0.5.5-1
 Architecture: amd64
 Maintainer: Kadalu Software Private Limited <packaging@kadalu.tech>
 Installed-Size: 95
 Pre-Depends: dpkg (>= 1.15.6~)
-Depends: kadalu-storage-client (>= 0.5.4-1), kadalu-storage-common (>= 0.5.4-1), libgoogle-perftools-dev, lsb-base (>= 3.0-6), nfs-common, libc6 (>= 2.14), libuuid1 (>= 2.16), libxml2 (>= 2.7.4)
+Depends: kadalu-storage-client (>= 0.5.5-1), kadalu-storage-common (>= 0.5.5-1), libgoogle-perftools-dev, lsb-base (>= 3.0-6), nfs-common, libc6 (>= 2.14), libuuid1 (>= 2.16), libxml2 (>= 2.7.4)
 Conflicts: glusterfs-server
-Filename: ./kadalu-storage-server_0.5.4-1_amd64.deb
-Size: 22820
-MD5sum: a549ab461164ee2277e93d010781c619
-SHA1: 344137be51e9c46d4c202f7bbec38ec3e81a2c01
-SHA256: cd394eff78cc1ae84424da651c74ba8be6d5d248028236238b8cdf71b077197a
+Replaces: kadalu-storage-server
+Filename: ./kadalu-storage-server_0.5.5-1_amd64.deb
+Size: 22828
+MD5sum: 7a5774c8fd3a1f3daaa00c7513f0c4e6
+SHA1: b0f60e3c8ec3a26e78f148444496321b8b3747d4
+SHA256: 977f66478caad42912e7f0598f9efae72e12f0c5c411c6171abbaafa82f17150
 Section: admin
 Priority: optional
 Homepage: http://www.kadalu.tech
@@ -105,16 +106,16 @@ Description: clustered file-system (server package)
 
 Package: python3-kadalu-storage
 Source: moana
-Version: 0.5.4-1
+Version: 0.5.5-1
 Architecture: amd64
 Maintainer: Kadalu Technologies Private Limited <packaging@kadalu.tech>
 Installed-Size: 9
 Depends: python3-urllib3
-Filename: ./python3-kadalu-storage_0.5.4-1_amd64.deb
-Size: 1652
-MD5sum: 9ecbbb2c7a5a657c78597374b1d88860
-SHA1: f68904597904b60c6f7e89cf349e59c3310e19a7
-SHA256: 0643a8772335769b7686954a9c575b2906b42882b708d10fd220b9f9f6a46f1f
+Filename: ./python3-kadalu-storage_0.5.5-1_amd64.deb
+Size: 1648
+MD5sum: eb77fd981d997d248dbfc0ddc5262cbc
+SHA1: 9ac66624417582282fee261b19632459a1bd81c4
+SHA256: b9abb7efd9582539b6470a3db03f68fb28652a29aa0263b55acc6d143e71b75a
 Section: main
 Priority: optional
 Multi-Arch: foreign
