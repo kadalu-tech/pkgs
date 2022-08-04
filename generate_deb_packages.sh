@@ -21,7 +21,8 @@ cd ../../
 # Clone and Checkout Moana
 git clone https://github.com/kadalu/moana.git build/moana-${VERSION}
 cd build/moana-${VERSION}
-git checkout -b ${MOANA_BRANCH} origin/${MOANA_BRANCH}
+git fetch --all --tags
+git checkout -b ${MOANA_BRANCH} tags/${MOANA_BRANCH}
 cd ../../
 
 # Create tar
