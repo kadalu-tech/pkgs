@@ -2,11 +2,11 @@
 
 set -e
 
-MOANA_BRANCH=0.5.5
+MOANA_BRANCH=1.0.0-beta.1
 GLUSTERFS_BRANCH=kadalu_1
 DISTRO_VERSION=20.04
 DISTRO=ubuntu
-VERSION=1.0.0
+VERSION=1.0.0-beta.1
 MAJOR_VERSION=1
 PKG_KADALU_STORAGE_MANAGER=kadalu-storage-manager
 PKG_KADALU_STORAGE=kadalu-storage
@@ -23,9 +23,8 @@ cd ../../
 # Clone and Checkout Moana
 git clone https://github.com/kadalu/moana.git build/${PKG_KADALU_STORAGE_MANAGER}-${VERSION}
 cd build/${PKG_KADALU_STORAGE_MANAGER}-${VERSION}
-# TODO: Enable this later. Build from main branch for now
-# git fetch --all --tags
-# git checkout -b ${MOANA_BRANCH} tags/${MOANA_BRANCH}
+git fetch --all --tags
+git checkout -b ${MOANA_BRANCH} tags/${MOANA_BRANCH}
 cd ../../
 
 # Create tar
@@ -39,8 +38,8 @@ cp -r build/${PKG_KADALU_STORAGE_MANAGER}-${VERSION}/packaging/moana/debian buil
 cp -r build/${PKG_KADALU_STORAGE_MANAGER}-${VERSION}/packaging/glusterfs/debian build/${PKG_KADALU_STORAGE}-${VERSION}/
 
 # Overwrite the Changelog file
-cp changelogs/moana/changelog-${VERSION} build/${PKG_KADALU_STORAGE_MANAGER}-${VERSION}/debian/changelog
-cp changelogs/glusterfs/changelog-${VERSION} build/${PKG_KADALU_STORAGE}-${VERSION}/debian/changelog
+cp changelogs/moana/changelog-${MAJOR_VERSION} build/${PKG_KADALU_STORAGE_MANAGER}-${VERSION}/debian/changelog
+cp changelogs/glusterfs/changelog-${MAJOR_VERSION} build/${PKG_KADALU_STORAGE}-${VERSION}/debian/changelog
 
 # Build Moana deb packages
 cd build/${PKG_KADALU_STORAGE_MANAGER}-${VERSION}/
