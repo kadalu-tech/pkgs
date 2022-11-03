@@ -83,7 +83,7 @@ gpg --list-keys
 # Release, Release.gpg & InRelease
 apt-ftparchive release . > Release
 gpg --local-user "packaging@kadalu.tech" -abs -o - Release > Release.gpg
-gpg --local-user "packaging@kadalu.tech" --clearsign -o - Release > InRelease
+gpg --local-user "packaging@kadalu.tech" --pinentry-mode=loopback --clearsign -o - Release > InRelease
 gpg --armor --export "packaging@kadalu.tech" > KEY.gpg
 
 echo "deb https://kadalu.tech/pkgs/${MAJOR_VERSION}/${DISTRO}/${DISTRO_VERSION} ./" > sources.list
