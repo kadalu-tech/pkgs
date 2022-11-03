@@ -1,5 +1,5 @@
 Package: kadalu-storage
-Version: 1.0.0-beta.1-1
+Version: 1.0.0-beta.2-1
 Architecture: amd64
 Maintainer: Kadalu Software Private Limited <packaging@kadalu.tech>
 Installed-Size: 15921
@@ -7,49 +7,49 @@ Pre-Depends: dpkg (>= 1.15.6~)
 Depends: attr, fuse, kadalu-storage-manager, libacl1-dev, libgoogle-perftools-dev, lsb-base (>= 3.0-6), psmisc, python3-jwt, python3-prettytable, python3-requests, libacl1 (>= 2.2.23), libaio1 (>= 0.3.93), libc6 (>= 2.28), libssl1.1 (>= 1.1.0), libtcmalloc-minimal4, liburcu6 (>= 0.11.1), libuuid1 (>= 2.16), libxml2 (>= 2.7.4), zlib1g (>= 1:1.1.4)
 Conflicts: glusterfs-client, glusterfs-common, glusterfs-server, libglusterfs-dev, libglusterfs0
 Replaces: kadalu-storage
-Filename: ./kadalu-storage_1.0.0-beta.1-1_amd64.deb
-Size: 2963504
-MD5sum: 0db430c30157a786b15ee2e11b4cdded
-SHA1: 0c4edbd60c6014c2e2f30ca1153b3d91ee965b1f
-SHA256: be0180abb6bdb3cef77037dc7ab2774bbe52bd60d8bf6d515e7eef4cb261519d
+Filename: ./kadalu-storage_1.0.0-beta.2-1_amd64.deb
+Size: 2957272
+MD5sum: 5f1bbee27c9a2231faed5078d6852e4a
+SHA1: b50989e43d872cc595ebaa9a740ded0724bbae4a
+SHA256: d3b9a8d62eae688f342192f358fbeb55447bba748c4b87b470bd904e1a7d3de1
 Section: admin
 Priority: optional
 Homepage: http://www.kadalu.tech
-Description: Kadalu-Storage is an Opinionated distributed filesystem
+Description: Kadalu Storage is an Opinionated distributed filesystem
   based on GlusterFS.
 
 Package: kadalu-storage-dbg
 Source: kadalu-storage
-Version: 1.0.0-beta.1-1
+Version: 1.0.0-beta.2-1
 Architecture: amd64
 Maintainer: Kadalu Software Private Limited <packaging@kadalu.tech>
-Installed-Size: 17418
+Installed-Size: 17400
 Pre-Depends: dpkg (>= 1.15.6~)
-Depends: kadalu-storage (= 1.0.0-beta.1-1)
+Depends: kadalu-storage (= 1.0.0-beta.2-1)
 Conflicts: glusterfs-dbg
-Filename: ./kadalu-storage-dbg_1.0.0-beta.1-1_amd64.deb
-Size: 16157784
-MD5sum: 607aa65c70a5f04ed886e993b29ccf1f
-SHA1: 12a1ac5ef7724b1717798b560e7af7e504b9818d
-SHA256: 91a796be1025a441d8447d5f823c2fc2f6c93771921d8d15e27c1c8bc3feaa31
+Filename: ./kadalu-storage-dbg_1.0.0-beta.2-1_amd64.deb
+Size: 16285308
+MD5sum: 5f418e6ede5ec85e24421977b3b357a3
+SHA1: 308df561e08eac935f6ffe581001c334bff101cb
+SHA256: 28ef723f0799575cbf3267900b69338e3c06fd73be6a57477a850b825aa2fcb0
 Section: debug
 Priority: extra
 Homepage: http://www.kadalu.tech
-Description: Kadalu-Storage debugging symbols
+Description: Kadalu Storage debugging symbols
  This package includes the debugging symbols.
-Build-Ids: 04d0737920553a481e9508e0eee9fabfc35ef380 05fa60b6f453761e654babdd046f5c21273fb140 0aaca1c276e5e4da94e908eaf915e0615002f50e 0aedd51d506199a5326abd4244d40898d1905bc7 0b9fd74a53c0cd5d4112cce92a773cade7cdb7dc 10c8ae48a7c71f0de49a10a30b30495c1208e2ca 114581319b246041b166cf93cd9571811a6bba89 1859235c114be1082f71edebac395519d379c6ac 1e6c60816d2f31f3280e795414d58f8e4e5fe436 1ed142531e29d3d24b401a712128bbd2bc2b5d97 1fb1c0a425ac31b2af5c8f26c04b83c0a3dd2f57 23680eb1a2c4bd6cb96662bc565473ee70b87808 3493ecb69343a72ea886058e87c24396db91a987 3c0bdfe3fd71505f794cc85116bd5e068f493881 49a9afcfc213d824555a4ce4f7db8498b2dcc282 4ecc8188d68f7d7e52b96afc7bc796904896d783 5988b40101063486cf0a3e758eb20d0cb5413c3e 59cde2c9d90104d840b82b3588e56bf3f2a14819 60e01ce277ae2663bccfc89e4f82b1b6386da2cb 66652120cf46f2f05f38e23f80353fc2a4f352f7 70101c64a8b7008f13a038a4dae7a80582c4b8e5 74fd077899a1efa16687000f53bed5097960cc6b 758fc5954c4700c6757f8ea5031e198546a80966 799923e6a9b3467d437ef70ed634422044304be7 7c9631d3c42465ad004bf703cf765b3209311750 8564fa1a44bc7e5d4546b426dfb4ba0f12363686 87db5a2c08d509ee0d61c50806d7d6ebe1db7120 8a8be9418c75fab073b38c20b084946bec408c47 8bab70b3c4f68840dbd62a8a9e1314eb7d78a42d 8d3a2c551c1f4b75f550d10eb2532528ef392e42 922d570d2475c1e998c1618c16160da747a48aa8 94b17c5c5100f8fd16d50118c98369de209cdff1 98693eea92f60d9d9f758ea75d5fb0fff6cc9aef 995d714a9011010d76cea2f7c961e8bc7795f8f9 9af4449938055e0763656a64dd6f9eff00f95c1f 9c604a3de158952c291ae3ed5cfbd68ef6e92392 9d80e956bde77144e1772e1652566279c1e8ee3a a2b0e687356491f422bf7c19b1c96164545fd65a a60561745d75816f45b12a32953c756045586e5e a72e49738387f75e1093c0257969f73ee317a87c a7c8c4e61e1c8c5c69922f8ad2666bcfc5d406dd a829bbc072ac76da7185e4edc03184ff2ac4d524 ad2ff5bbac27df29acf297e8f5581c550df4c457 ad5a831d6e1483b1ec9aa2aa891ad242ef2bee93 b31db79d88758060f809412922e37d7fce2e0a1e b8571792d71e062191b6ab02eb673b4133525898 b8ec049e02d8208451c9b9fcb862bf1709321a70 bb7f6119c87efaee1e12096869784803f0d1c076 c4cb12a006884648f83926664e414721b6adbb7b c8da4a5df277698b7cbd8847abb0518e5acbdb35 c99675cb0d08496c5f9221cc6151b220cb18957f d0fd03e2a2661861d3ecb21ef32d9239b45f0953 d1fac5ba0cf5db30358ebcf2d55b08691a1e3327 d64edd88b644c09a4fd08a637dc778265c6a9f51 d98c408e6990e23c36a6756db16d8f75ca6de560 dc0721b0bd32a3069e35173f3351a08ebf7fc30a e00caa49bf59e9ab41b620ed516feedfb2901ba4 e05c3e10e7fb19da4ba38f665287148bedb2c01b e2b5d19405a226a49c78ff8b37b1b45937339b4f e9a4475371e4980ade2435b8868fdd6f14b38d92 e9c92b12c3c3b1f469434ddc1abff788d601f392 f0b055e71850bf881f8dd1d6faf3872966518313 f29c371bd0e6955708e42451fd9c883cb7e7bffd f32f9de500808da2a4636212a39e34247610fe3e f7455939e917be4e8936cc6d81c0148596276a8e
+Build-Ids: 04d0737920553a481e9508e0eee9fabfc35ef380 05dceb246da4feb240f4e0e74495d8283fc82b45 0f0bae35508fefb3c3320ebd4999906996e201dc 16b7a38781e5f4bd8313f25ff7952bf08132a618 1da05e5177a38856972e39997f69a5d5db94f9cf 1e76b8fe2f70bbc2db1b464050ba418199c0353e 27fa8db369a2391a927232bca1e15fdee54bbb80 2c404ac2a1e57cec58816e48eb19b3c68d5cd620 3059f94d4360c5f85c96c80c1136ac92829df1a6 3af4fef11c554d9c8b7f93679cc41b57e86d5356 3af97f38d442c83b2645682a577e967c6e8d1554 44dffb8bebd1db7ac779238ad3929a6462298779 46e1574343c17ac4163bcce14f94dfc5cf77c793 4cf6cf3179f95d487af6e66bc6ecdd2b7dcadb97 4e33c8198a4f6309b87f1c1754754079e9797eb3 508bfa170e2362069f2f69ff51cad4e21ef986f8 63bb9bbf51ead077409ac56e25bb51e4d82dd24e 6914f022594919ebafbc70e1be4e6aad52f8e8b0 6a97998203624065269a0a6cb0d58366c0a26236 6b32aff0aa4d64916893a82b8eed88c928836e27 6db346f6abf111f7f3230ad7f9c6e74e566daf23 6ff0246d285201b9bdd5dde9321d97da7adda29f 7603c165da13e1d7bba40bd1169f1f79b8222204 7ce96d262d1fe3f706d903138beac63f882337f0 80f3352d99dfed30cf71ea1c85390dff744f7621 85bd2d758245fbd3483f1e6095232bf2e6a69871 892775ff44fd6530a44e37ed3fc37f804c57a3d6 8c299efba67bf3bb7cd043992aa1c98e3fd31404 95a6fa73e881d9c8242ebbec771140a910c23570 9c604a3de158952c291ae3ed5cfbd68ef6e92392 9cec096051fa00fcf9cb1e0d291313e78952bb22 9d19db7e03071f9bb98410466bd36740aea56d23 9d8f7871821df29eaaf7f73c3c3fbc0304cd49af 9f9d68fed7917f4cd9d4fb13d3385da0a1e1ca17 a2b066a63ebb2b6e3a7697fdbf8c2b1bf58ea5dc a65e3bb66fc5bfc147303b49467c49edfc073c26 a802d56797c9ab1a0a89291c45675c36362ef9c8 a9985cd79995ac0ac75e54740f4d92f86e98cd2a a9a86760ef0cb42116ca86608df0a243bf520ae9 a9fca65d086a67d05057d3556f9697e5abc36188 acea7bdb23155885c3c40d4a03ac34cbb573f8f9 aeba3a73b2b647d784699cc3ce35d1b2c8ced6b9 afc917ba098537947b5cf623ed1ff61eb6708344 b206b5cabc0a905aaaa1f29252ce35633fa1168c b437ba4ff63e05a6cea720fb6ac0495b7e0f9e32 b7053b914ebacf6653a117ede89d085847bf2016 bb85ee87e637bd5c9dc349a0bb4fd4ef7ce1141e bd9cfb2f14b6e7e3376ff64f7bcc3efd62d586d6 c148c6d630d1925ed3fda517f15510da8c3adabc c250ff05f262c08d14e34950fd0e99a2f6c9c949 c2b8d8cc99a85c43b885b541962380a7a7ac6882 c36be68d09b4671b2ea3d1368b02ea816b24be32 ce6e43c94b427f5df3c2b32ec3700766ab1511cf d47479fc511f48d75d53e1bf3cd7f7b7bfcf2cd5 d5694d2a2572861251599cccd2e882dda4e10e88 d7c33382ee036328485619d82da2a5e6aa189f77 d7f8c5776c99dea6b95b39fb28523f19047456cc dbd8c3969e01a43e0dbff4c6df358d73bb08c7d4 e3c78fcb3f228610e919e0e118ff68c37b43dfcc eb2a9e17a3aaa962b35d492c8b7385c604ed54fb ef0fa913bd8a82c4612153d3b9a69c5185234489 f2d9309e967803a4a9669645d4a5395c4299db10 f5feab1b703b02bcd5283adaf190026356a3d76e fce2c6ce42d04ee0df3ffcc5a1ede17617e63d51 ff228fd7ec486a18ce8bd7d901b8f8e9406b707f
 
 Package: kadalu-storage-manager
-Version: 1.0.0-beta.1-1
+Version: 1.0.0-beta.2-1
 Architecture: amd64
 Maintainer: Kadalu Technologies Private Limited <packaging@kadalu.tech>
-Installed-Size: 2299
+Installed-Size: 2283
 Depends: libc6 (>= 2.29), libevent-2.1-7 (>= 2.1.8-stable), libgcc-s1 (>= 3.3), libpcre3, libsqlite3-0 (>= 3.6.11), libssl1.1 (>= 1.1.1), libxml2 (>= 2.7.4), libyaml-0-2, zlib1g (>= 1:1.1.4)
-Filename: ./kadalu-storage-manager_1.0.0-beta.1-1_amd64.deb
-Size: 696552
-MD5sum: db9b1594bbbbe79557e69407da33fced
-SHA1: 9d4c2f08331ab634ffca4e09b84b1391158b9b60
-SHA256: 2816e3547ac430fb258f28815efe3e1c952365729161b486b01b892fb3257340
+Filename: ./kadalu-storage-manager_1.0.0-beta.2-1_amd64.deb
+Size: 694252
+MD5sum: 93f33d9485008af97c0e7fee00fb0201
+SHA1: b69e5e23064c787acd8550629a4404cb328828e4
+SHA256: 50a875c3b43915bb1f24c9262a99f1dfc01be1758a24192896257989243c418f
 Section: main
 Priority: optional
 Multi-Arch: foreign
@@ -59,16 +59,16 @@ Description: Kadalu Storage Manager is a frontend for the Kadalu Storage.
 
 Package: python3-kadalu-storage
 Source: kadalu-storage-manager
-Version: 1.0.0-beta.1-1
+Version: 1.0.0-beta.2-1
 Architecture: amd64
 Maintainer: Kadalu Technologies Private Limited <packaging@kadalu.tech>
 Installed-Size: 9
 Depends: python3-urllib3
-Filename: ./python3-kadalu-storage_1.0.0-beta.1-1_amd64.deb
-Size: 1676
-MD5sum: a11fce6857a6a114bcd7a8fde894eb0f
-SHA1: adfaae5230053a9348084e67497404f21290316a
-SHA256: 611a3c768e8652df806f68b891bf66cf54912b47010964d11ce3dc9243bdf8df
+Filename: ./python3-kadalu-storage_1.0.0-beta.2-1_amd64.deb
+Size: 1716
+MD5sum: f77f098730cdafcba6fedc67d90f4298
+SHA1: 1680e734be1f00b6475840b1861638284ddf4e1a
+SHA256: 94338fd8fa31a7f14d8c02fc0cd01f7a47718b29861ca82eff4ff0a04b87ef01
 Section: libs
 Priority: optional
 Multi-Arch: foreign
