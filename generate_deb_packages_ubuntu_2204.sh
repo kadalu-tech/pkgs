@@ -53,12 +53,6 @@ debmake -b":python3"
 debuild
 cd ../../
 
-# Clone the existing repo and checkout gh-pages to get the current output directory
-git clone https://github.com/kadalu-tech/pkgs.git build/output
-cd build/output
-git checkout -b gh-pages origin/gh-pages
-cd ../../
-
 rm -rf output
 mkdir output
 # TODO: Add previous versions when a new version is released
