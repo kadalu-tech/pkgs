@@ -14,26 +14,12 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v2
-    # TODO: Review the below list of dependencies
-    - name: Install the Build dependencies
+    - name: Install binnacle
       run: |
-        sudo apt update -y
-        sudo apt install -y libunwind-dev
-        sudo apt install -y --no-install-recommends python3 libtirpc3 init     \
-        python3-pip ssh rsync lvm2 less software-properties-common             \
-        sudo curl wget git build-essential automake autoconf automake libtool  \
-        flex bison libssl-dev pkg-config uuid-dev acl-dev zlib1g-dev           \
-        libxml2-dev libxml2-utils liburcu-dev xfsprogs gdb attr                \
-        libgoogle-perftools-dev zfsutils-linux screen libsqlite3-dev sqlite3   \
-        debmake python3-debian debhelper dh-python                             \
-        libaio-dev libdb-dev libfuse-dev libibverbs-dev liblvm2-dev            \
-        libncurses5-dev librdmacm-dev libreadline-dev python3-all-dev
-    - name: Install Crystal
+        curl -fsSL https://github.com/kadalu/binnacle/releases/latest/download/install.sh | sudo bash -x
+    - name: Run Binnacle based packages generator
       run: |
-        curl -fsSL https://crystal-lang.org/install.sh | sudo bash
-    - name: Build Debian packages
-      run: |
-        PACKAGING_GPG_SIGNING_KEY="${{ secrets.PACKAGING_GPG_SIGNING_KEY }}" ./generate_deb_packages_ubuntu_2204.sh
+        PACKAGING_GPG_SIGNING_KEY="${{ secrets.PACKAGING_GPG_SIGNING_KEY }}" binnacle -v ubuntu.22.04.t
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
