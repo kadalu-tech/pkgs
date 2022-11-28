@@ -3,7 +3,7 @@ name: After merging PR
 on:
   push:
     branches:
-      - main
+      - main_
       - build_test
 
   # Allow to run this workflow manually from the Actions tab
