@@ -19,7 +19,7 @@ jobs:
         curl -fsSL https://github.com/kadalu/binnacle/releases/latest/download/install.sh | sudo bash -x
     - name: Run Binnacle based packages generator
       run: |
-        PACKAGING_GPG_SIGNING_KEY="${{ secrets.PACKAGING_GPG_SIGNING_KEY }}" binnacle -v ubuntu.22.04.t
+        sudo PACKAGING_GPG_SIGNING_KEY="${{ secrets.PACKAGING_GPG_SIGNING_KEY }}" binnacle -v runner_ubuntu-22.04.t
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
