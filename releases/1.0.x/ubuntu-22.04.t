@@ -16,6 +16,7 @@ containers = [
 # the remote plugin
 EMIT_STDOUT true
 USE_REMOTE_PLUGIN "docker"
+EXIT_ON_NOT_OK true
 
 # Cleanup: Stop and delete all the running
 # containers and then cleanup and recreate the
@@ -50,7 +51,7 @@ TEST "docker ps"
 containers.each do |container|
   USE_NODE "local"
   # Copy the sources, script and checkout the required branches
-  TEST %{docker cp #{VERSION_DIR}/changelogs #{container}:/root/}
+  TEST %{docker cp releases/#{VERSION_DIR}/changelogs #{container}:/root/}
   TEST "docker cp build #{container}:/root/"
 
   USE_NODE container
