@@ -1,3 +1,10 @@
+kadalu-storage-manager (1.0.0-1) UNRELEASED; urgency=low
+
+  * First GA release of Kadalu Storage manager
+  * Full list of Changes here https://github.com/kadalu/moana/blob/main/CHANGELOG.adoc
+
+ -- Kadalu Technologies Pvt Limited <packaging@kadalu.tech>  Wed, 30 Nov 2022 07:07:10 +0530
+
 kadalu-storage-manager (1.0.0-beta.2-1) UNRELEASED; urgency=low
 
   * Beta 2 release

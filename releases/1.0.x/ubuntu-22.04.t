@@ -1,9 +1,9 @@
 # -*- mode: ruby -*-
 PACKAGING_GPG_SIGNING_KEY = ENV["PACKAGING_GPG_SIGNING_KEY"]
-PKG_VERSION = ENV.fetch("PKG_VERSION", "1.0.0-beta.2")
-MOANA_TAG = ENV.fetch("MOANA_TAG", "1.0.0-beta.2")
-GLUSTERFS_BRANCH = ENV.fetch("GLUSTERFS_BRANCH", "kadalu_1")
-MAJOR_VERSION = "1"
+PKG_VERSION = ENV["PKG_VERSION"]
+MOANA_TAG = PKG_VERSION
+GLUSTERFS_TAG = "k#{PKG_VERSION}"
+VERSION_DIR = "#{PKG_VERSION.split(".")[0]}.#{PKG_VERSION.split(".")[1]}.x"
 DISTRO_VERSION = "22.04"
 DISTRO = "ubuntu"
 
@@ -50,7 +50,7 @@ TEST "docker ps"
 containers.each do |container|
   USE_NODE "local"
   # Copy the sources, script and checkout the required branches
-  TEST %{docker cp changelogs #{container}:/root/}
+  TEST %{docker cp #{VERSION_DIR}/changelogs #{container}:/root/}
   TEST "docker cp build #{container}:/root/"
 
   USE_NODE container
@@ -78,16 +78,16 @@ containers.each do |container|
   TEST "cd /root/build/moana && git checkout -b #{MOANA_TAG} tags/#{MOANA_TAG}"
   TEST "mv /root/build/moana /root/build/#{pkg1}"
   TEST "cd /root/build/ && tar cvzf #{pkg1}.tar.gz #{pkg1}"
-  TEST "cp /root/changelogs/moana/changelog-#{MAJOR_VERSION} /root/build/#{pkg1}/packaging/moana/debian/changelog"
+  TEST "cp /root/changelogs/moana /root/build/#{pkg1}/packaging/moana/debian/changelog"
   TEST "cp -r /root/build/#{pkg1}/packaging/moana/debian /root/build/#{pkg1}/"
   TEST "cd /root/build/#{pkg1} && debmake -b\":python3\" && debuild -eVERSION=#{PKG_VERSION}"
 
   # Build GlusterFS
   pkg2 = "kadalu-storage-#{PKG_VERSION}"
-  TEST "cd /root/build/glusterfs && git checkout -b #{GLUSTERFS_BRANCH} origin/#{GLUSTERFS_BRANCH}"
+  TEST "cd /root/build/glusterfs && git checkout -b #{GLUSTERFS_TAG} tags/#{GLUSTERFS_TAG}"
   TEST "mv /root/build/glusterfs /root/build/#{pkg2}"
   TEST "cd /root/build/ && tar cvzf #{pkg2}.tar.gz #{pkg2}"
-  TEST "cp /root/changelogs/glusterfs/changelog-#{MAJOR_VERSION} /root/build/#{pkg1}/packaging/glusterfs/debian/changelog"
+  TEST "cp /root/changelogs/glusterfs /root/build/#{pkg1}/packaging/glusterfs/debian/changelog"
   # Copy debian directory from moana repo to build root of respective package
   TEST "cp -r /root/build/#{pkg1}/packaging/glusterfs/debian /root/build/#{pkg2}/"
   TEST "cd /root/build/#{pkg2} && debmake -b\":python3\" && debuild -eVERSION=#{PKG_VERSION}"
@@ -122,7 +122,7 @@ TEST "cd /root/packages && apt-ftparchive release . > Release"
 TEST "cd /root/packages && gpg --local-user \"packaging@kadalu.tech\" -abs -o - Release > Release.gpg"
 TEST "cd /root/packages && gpg --local-user \"packaging@kadalu.tech\" --clearsign -o - Release > InRelease"
 TEST "cd /root/packages && gpg --armor --export \"packaging@kadalu.tech\" > KEY.gpg"
-TEST "echo \"deb https://kadalu.tech/pkgs/#{MAJOR_VERSION}/#{DISTRO}/#{DISTRO_VERSION} ./\" > sources.list"
+TEST "echo \"deb https://kadalu.tech/pkgs/#{VERSION_DIR}/#{DISTRO}/#{DISTRO_VERSION} ./\" > sources.list"
 
 USE_NODE "local"
 
@@ -130,9 +130,9 @@ USE_NODE "local"
 TEST "rm -rf ./output"
 TEST "git clone https://github.com/kadalu-tech/pkgs.git output"
 TEST "cd output && git checkout -b gh-pages origin/gh-pages"
-TEST "rm -rf output/#{MAJOR_VERSION}/#{DISTRO}/#{DISTRO_VERSION}"
-TEST "mkdir -p output/#{MAJOR_VERSION}/#{DISTRO}/#{DISTRO_VERSION}"
-TEST "docker cp #{containers[0]}:/root/packages/. output/#{MAJOR_VERSION}/#{DISTRO}/#{DISTRO_VERSION}/"
+TEST "rm -rf output/#{VERSION_DIR}/#{DISTRO}/#{DISTRO_VERSION}"
+TEST "mkdir -p output/#{VERSION_DIR}/#{DISTRO}/#{DISTRO_VERSION}"
+TEST "docker cp #{containers[0]}:/root/packages/. output/#{VERSION_DIR}/#{DISTRO}/#{DISTRO_VERSION}/"
 TEST "rm -rf output/.git*"
-TEST "chmod -R 777 output/#{MAJOR_VERSION}/#{DISTRO}/#{DISTRO_VERSION}/*"
-TEST "ls output/#{MAJOR_VERSION}/#{DISTRO}/#{DISTRO_VERSION}/"
+TEST "chmod -R 777 output/#{VERSION_DIR}/#{DISTRO}/#{DISTRO_VERSION}/*"
+TEST "ls output/#{VERSION_DIR}/#{DISTRO}/#{DISTRO_VERSION}/"
