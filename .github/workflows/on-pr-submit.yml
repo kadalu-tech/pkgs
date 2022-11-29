@@ -3,7 +3,7 @@ name: Run on every PR
 on:
   pull_request:
     branches:
-      - main
+      - main_
     paths-ignore:
       - 'docs/**'
       - 'extras/**'
