@@ -1,0 +1,25 @@
+name: "On Release"
+
+on:
+  push:
+    # Publish `1.2.3` tags as releases.
+    tags:
+      - "*"
+
+jobs:
+  ubuntu-22.04:
+    name: Ubuntu 22.04 packages
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install binnacle
+        run: |
+          curl -fsSL https://github.com/kadalu/binnacle/releases/latest/download/install.sh | sudo bash -x
+      - name: Build Ubuntu packages Arm64/Amd64
+        run: |
+          sudo PACKAGING_GPG_SIGNING_KEY="${{ secrets.PACKAGING_GPG_SIGNING_KEY }}" runner.sh ${GITHUB_REF##*/} ubuntu-22.04
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
