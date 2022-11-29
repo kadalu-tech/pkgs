@@ -7,7 +7,7 @@ on:
       - "*"
 
 jobs:
-  ubuntu-22.04:
+  ubuntu-2204:
     name: Ubuntu 22.04 packages
     runs-on: ubuntu-22.04
     steps:
@@ -17,7 +17,7 @@ jobs:
           curl -fsSL https://github.com/kadalu/binnacle/releases/latest/download/install.sh | sudo bash -x
       - name: Build Ubuntu packages Arm64/Amd64
         run: |
-          sudo PACKAGING_GPG_SIGNING_KEY="${{ secrets.PACKAGING_GPG_SIGNING_KEY }}" runner.sh ${GITHUB_REF##*/} ubuntu-22.04
+          sudo PACKAGING_GPG_SIGNING_KEY="${{ secrets.PACKAGING_GPG_SIGNING_KEY }}" ./runner.sh ${GITHUB_REF##*/} ubuntu-22.04
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
