@@ -3,7 +3,7 @@ name: Run on every PR
 on:
   pull_request:
     branches:
-      - main_
+      - main
     paths-ignore:
       - 'docs/**'
       - 'extras/**'
@@ -14,7 +14,7 @@ jobs:
   # TODO: Add unit test as well here
   tests:
     name: Kadalu Storage Tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
       - name: Install Binnacle
@@ -27,8 +27,10 @@ jobs:
         run: |
           cd tests && ./build-container.sh
       - name: Setup Test environment
-        run: binnacle -v tests/setup.t
+        run: sudo binnacle -v tests/setup.t
       - name: Build and Install Storage manager to nodes/containers
-        run: VERSION="${{ github.ref_name }}" binnacle -v tests/install.t
-      - name: Run all Tests
-        run: binnacle -v tests/all
+        run: sudo VERSION="${{ github.ref_name }}" binnacle -v tests/install.t
+      - name: Run all Tests - Amd64
+        run: sudo ARCH=amd binnacle -v tests/all
+      - name: Run all Tests - Arm64
+        run: sudo ARCH=arm binnacle -v tests/all
