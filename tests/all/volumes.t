@@ -2,8 +2,9 @@
 
 load "#{File.dirname(__FILE__)}/../reset.t"
 
+EMIT_STDOUT true
 USE_REMOTE_PLUGIN "docker"
-nodes = ["server1", "server2", "server3"]
+nodes = ["#{ENV["ARCH"]}-server1", "#{ENV["ARCH"]}-server2", "#{ENV["ARCH"]}-server3"]
 
 nodes.each do |node|
   USE_NODE node
@@ -44,16 +45,16 @@ end
 
 USE_NODE nodes[0]
 # Distribute
-TEST "kadalu volume create DEV/vol1 server1:/exports/vol1/s1 server2:/exports/vol1/s2 server3:/exports/vol1/s3"
+TEST "kadalu volume create DEV/vol1 #{nodes[0]}:/exports/vol1/s1 #{nodes[1]}:/exports/vol1/s2 #{nodes[2]}:/exports/vol1/s3"
 
 # Replicate
-TEST "kadalu volume create DEV/vol2 replica server1:/exports/vol2/s1 server2:/exports/vol2/s2 server3:/exports/vol2/s3"
+TEST "kadalu volume create DEV/vol2 replica #{nodes[0]}:/exports/vol2/s1 #{nodes[1]}:/exports/vol2/s2 #{nodes[2]}:/exports/vol2/s3"
 
 # Disperse
-TEST "kadalu volume create DEV/vol3 data server1:/exports/vol3/s1 server2:/exports/vol3/s2 redundancy server3:/exports/vol3/s3"
+TEST "kadalu volume create DEV/vol3 data #{nodes[0]}:/exports/vol3/s1 #{nodes[1]}:/exports/vol3/s2 redundancy #{nodes[2]}:/exports/vol3/s3"
 
 # Distributed Replicate
-TEST "kadalu volume create DEV/vol4 replica server1:/exports/vol4/s1 server2:/exports/vol4/s2 server3:/exports/vol4/s3 replica server1:/exports/vol4/s4 server2:/exports/vol4/s5 server3:/exports/vol4/s6"
+TEST "kadalu volume create DEV/vol4 replica #{nodes[0]}:/exports/vol4/s1 #{nodes[1]}:/exports/vol4/s2 #{nodes[2]}:/exports/vol4/s3 replica #{nodes[0]}:/exports/vol4/s4 #{nodes[1]}:/exports/vol4/s5 #{nodes[2]}:/exports/vol4/s6"
 
 puts TEST "kadalu volume list --json"
 
@@ -70,7 +71,7 @@ end
 USE_NODE nodes[0]
 TEST "mkdir /mnt/vol2"
 TEST "chattr +i /mnt/vol2"
-TEST "mount -t kadalu #{nodes[0]}:DEV/vol2 /mnt/vol2"
+TEST "mount -t kadalu DEV/vol2 /mnt/vol2"
 
 TEST "echo \"Hello World\" > /mnt/vol2/f1"
 # TODO: Validate this value below
@@ -98,7 +99,7 @@ end
 puts TEST "kadalu pool delete DEV --mode=script"
 
 USE_NODE nodes[0]
-TEST "kadalu volume create DEV/vol5 server1:/exports/vol5/s1 server2:/exports/vol5/s2 server3:/exports/vol5/s3 --auto-create-pool --auto-add-nodes"
+TEST "kadalu volume create DEV/vol5 #{nodes[0]}:/exports/vol5/s1 #{nodes[1]}:/exports/vol5/s2 #{nodes[2]}:/exports/vol5/s3 --auto-create-pool --auto-add-nodes"
 TEST "kadalu volume stop DEV/vol5 --mode=script"
 TEST "kadalu volume delete DEV/vol5 --mode=script"
 
@@ -114,42 +115,44 @@ end
 # Case 1
 # Create vol6 & delete it. Reuse the same path with --volume-id for vol7.
 USE_NODE nodes[0]
-vol_id = create_volume_and_get_id("kadalu volume create DEV/vol6 server1:/exports/vol6/s1 server2:/exports/vol6/s2 server3:/exports/vol6/s3 --no-start")
+vol_id = create_volume_and_get_id("kadalu volume create DEV/vol6 #{nodes[0]}:/exports/vol6/s1 #{nodes[1]}:/exports/vol6/s2 #{nodes[2]}:/exports/vol6/s3 --no-start")
 TEST "kadalu volume delete DEV/vol6 --mode=script"
-new_vol_id = create_volume_and_get_id("kadalu volume create DEV/vol7 server1:/exports/vol6/s1 server2:/exports/vol6/s2 server3:/exports/vol6/s3 --no-start --volume-id=#{vol_id}")
+new_vol_id = create_volume_and_get_id("kadalu volume create DEV/vol7 #{nodes[0]}:/exports/vol6/s1 #{nodes[1]}:/exports/vol6/s2 #{nodes[2]}:/exports/vol6/s3 --no-start --volume-id=#{vol_id}")
 EQUAL vol_id, new_vol_id, "Checking if volume-id are equal after vol6 is reused with --volume-id in vol7"
 TEST "kadalu volume delete DEV/vol7 --mode=script"
 
 # Case 2
 # Create vol8. Create vol9 with --volume-id of active vol8.
-vol_id = create_volume_and_get_id("kadalu volume create DEV/vol8 server1:/exports/vol8/s1 server2:/exports/vol8/s2 server3:/exports/vol8/s3 --no-start")
-TEST 1, "kadalu volume create DEV/vol9 server1:/exports/vol9/s1 server2:/exports/vol9/s2 server3:/exports/vol9/s3 --no-start --volume-id=#{vol_id}"
+vol_id = create_volume_and_get_id("kadalu volume create DEV/vol8 #{nodes[0]}:/exports/vol8/s1 #{nodes[1]}:/exports/vol8/s2 #{nodes[2]}:/exports/vol8/s3 --no-start")
+TEST 1, "kadalu volume create DEV/vol9 #{nodes[0]}:/exports/vol9/s1 #{nodes[1]}:/exports/vol9/s2 #{nodes[2]}:/exports/vol9/s3 --no-start --volume-id=#{vol_id}"
 TEST "kadalu volume delete DEV/vol8 --mode=script"
 
 # Case 3
 # Create vol10 with full storage-unit directory
-TEST "kadalu volume create DEV/vol10 server1:/exports/vol10/s1 --no-start"
+TEST "kadalu volume create DEV/vol10 #{nodes[0]}:/exports/vol10/s1 --no-start"
 TEST "kadalu volume delete DEV/vol10 --mode=script"
 
 # Case 4 [Negation of Case1]
 # Create vol11 & delete it. Create vol12 with same path of unactive vol11 without --volume-id.
-TEST "kadalu volume create DEV/vol11 server1:/exports/vol11/s1 server2:/exports/vol11/s2 server3:/exports/vol11/s3 --no-start"
+TEST "kadalu volume create DEV/vol11 #{nodes[0]}:/exports/vol11/s1 #{nodes[1]}:/exports/vol11/s2 #{nodes[2]}:/exports/vol11/s3 --no-start"
 TEST "kadalu volume delete DEV/vol11 --mode=script"
-TEST 1, "kadalu volume create DEV/vol12 server1:/exports/vol11/s1 server2:/exports/vol11/s2 server3:/exports/vol11/s3 --no-start"
+TEST 1, "kadalu volume create DEV/vol12 #{nodes[0]}:/exports/vol11/s1 #{nodes[1]}:/exports/vol11/s2 #{nodes[2]}:/exports/vol11/s3 --no-start"
 
 # Case 5
 # Create vol13 with fresh path & no xattrs using --volume-id with wrong format. [Check for matching format of vol-id with uuid]
-TEST 1, "kadalu volume create DEV/vol13 server1:/exports/vol12/s1 server2:/exports/vol12/s2 server3:/exports/vol12/s3 --no-start --volume-id=123-456-789"
+TEST 1, "kadalu volume create DEV/vol13 #{nodes[0]}:/exports/vol12/s1 #{nodes[1]}:/exports/vol12/s2 #{nodes[2]}:/exports/vol12/s3 --no-start --volume-id=123-456-789"
 
 
 # Tests for restarting of all services on node-reboot
-TEST "kadalu volume create DEV/vol14 server1:/exports/vol14/s1 server2:/exports/vol14/s2 server3:/exports/vol14/s3"
+TEST "kadalu volume create DEV/vol14 #{nodes[0]}:/exports/vol14/s1 #{nodes[1]}:/exports/vol14/s2 #{nodes[2]}:/exports/vol14/s3"
 nodes.each do |node|
   USE_NODE node
   puts TEST "ps aux | grep 'glusterfsd'"
   EQUAL "1", (TEST "ps aux | grep '[g]lusterfsd'| wc -l").strip, "Check for equal number of services[brick-processes]"
-  puts TEST "kill $(pidof 'glusterfsd')"
+  # TODO: This is not working in arm64.
+  #puts TEST "kill -9 $(pidof 'glusterfsd')"
   TEST "systemctl restart kadalu-mgr"
+  TEST "sleep 5"
   puts TEST "ps aux | grep 'glusterfsd'"
   EQUAL "1", (TEST "ps aux | grep '[g]lusterfsd'| wc -l").strip, "Check for equal number of services[brick-processes]"
   puts TEST "cat /var/log/kadalu/storage_units/*;"
@@ -159,8 +162,65 @@ USE_NODE nodes[0]
 TEST "kadalu volume stop DEV/vol14 --mode=script"
 TEST "kadalu volume delete DEV/vol14 --mode=script"
 
+# Volfile Server tests
+# Volume create with known Storage unit port
+TEST "mkdir -p /exports/vol_volfile/s1"
+TEST "kadalu volume create DEV/vol_volfile #{nodes[0]}:5007:/exports/vol_volfile/s1"
+puts TEST "ls /var/lib/kadalu/volfiles"
+
+# Mount the Volume
+TEST "mkdir -p /mnt/vol_volfile"
+TEST "glusterfs -s #{nodes[0]}:5007 --volfile-id vol_volfile -l/tmp/volspec.log /mnt/vol_volfile"
+puts TEST "df /mnt/vol_volfile"
+
+# Use mount command (Different options)
+# Using Mgr URL
+TEST "mkdir -p /mnt/vol_volfile_1"
+puts TEST "mount -t kadalu http://#{nodes[0]}:3000:/DEV/vol_volfile /mnt/vol_volfile_1"
+puts TEST "df /mnt/vol_volfile_1"
+
+# TODO: Mgr URL from ENV
+TEST "mkdir -p /mnt/vol_volfile_2"
+puts TEST "mount -t kadalu /DEV/vol_volfile /mnt/vol_volfile_2"
+puts TEST "df /mnt/vol_volfile_2"
+
+# Using Storage Unit URL directly
+TEST "mkdir -p /mnt/vol_volfile_3"
+puts TEST "mount -t kadalu #{nodes[0]}:5007:/DEV/vol_volfile /mnt/vol_volfile_3"
+puts TEST "df /mnt/vol_volfile_3"
+
+# Using Volfile Server option
+TEST "mkdir -p /mnt/vol_volfile_4"
+puts TEST "mount -t kadalu -o \"volfile-server=#{nodes[0]}:5007\" /DEV/vol_volfile /mnt/vol_volfile_4"
+puts TEST "df /mnt/vol_volfile_4"
+
+# Using Volfile Servers option
+TEST "mkdir -p /mnt/vol_volfile_5"
+puts TEST "mount -t kadalu -o \"volfile-servers=#{nodes[0]}:5007 #{nodes[0]}:5007\" /DEV/vol_volfile /mnt/vol_volfile_5"
+puts TEST "df /mnt/vol_volfile_5"
+
+# Using Volfile Path option
+TEST "mkdir -p /mnt/vol_volfile_6"
+puts TEST "mount -t kadalu /var/lib/kadalu/volfiles/vol_volfile.vol /mnt/vol_volfile_6"
+puts TEST "df /mnt/vol_volfile_6"
+
+TEST "umount /mnt/vol_volfile_*"
+
+# Change option using Volume set
+TEST "kadalu volume set DEV/vol_volfile debug/io-stats.log-level DEBUG"
+TEST "sleep 5"
+
+# Print the mount log to see if the option changed is reflected
+puts TEST "cat /tmp/volspec.log"
+TEST "grep -q \"Volume file changed\" /tmp/volspec.log"
+
+TEST "umount /mnt/vol_volfile"
+
+TEST "kadalu volume stop DEV/vol_volfile --mode=script"
+TEST "kadalu volume delete DEV/vol_volfile --mode=script"
+
 # Tests for Backup & Restore
-TEST "kadalu volume create DEV/vol19 server1:/exports/vol19/s1 server2:/exports/vol19/s2 server3:/exports/vol19/s3"
+TEST "kadalu volume create DEV/vol19 #{nodes[0]}:/exports/vol19/s1 #{nodes[1]}:/exports/vol19/s2 #{nodes[2]}:/exports/vol19/s3"
 USE_NODE nodes[0]
 TEST "kadalu config-snapshot create snap1"
 puts TEST "kadalu config-snapshot list"
@@ -171,6 +231,7 @@ TEST "rm -rf /var/lib/kadalu/meta /var/lib/kadalu/info"
 TEST "kadalu config-snapshot restore snap1 --mode=script"
 
 TEST "systemctl start kadalu-mgr"
+TEST "sleep 5"
 
 TEST "kadalu volume stop DEV/vol19 --mode=script"
 TEST "kadalu volume delete DEV/vol19 --mode=script"

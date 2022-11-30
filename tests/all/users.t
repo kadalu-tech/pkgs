@@ -2,8 +2,9 @@
 
 load "#{File.dirname(__FILE__)}/../reset.t"
 
+EMIT_STDOUT true
 USE_REMOTE_PLUGIN "docker"
-nodes = ["server1", "server2", "server3"]
+nodes = ["#{ENV["ARCH"]}-server1", "#{ENV["ARCH"]}-server2", "#{ENV["ARCH"]}-server3"]
 
 nodes.each do |node|
   USE_NODE node
