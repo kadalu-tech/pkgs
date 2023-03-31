@@ -88,9 +88,9 @@ Installed-Size: 3549
 Depends: libc6 (>= 2.34), libevent-2.1-7 (>= 2.1.8-stable), libgcc-s1 (>= 3.3), libpcre3, libsqlite3-0 (>= 3.6.11), libssl3 (>= 3.0.0~~alpha1), libxml2 (>= 2.7.4), zlib1g (>= 1:1.1.4)
 Filename: ./kadalu-storage-manager_1.1.0-beta.2-1_amd64.deb
 Size: 1109760
-MD5sum: 577da898c03b4121e82cc261473e42b6
-SHA1: 6fb82f870818e0f208f3afd3b183b2e5522dee22
-SHA256: 72850dffdd8014533dba24dcdb367d4c615fdb27ee8fd6f98bb7152370f42963
+MD5sum: 5c10de669561b3ff686db69e19b676a7
+SHA1: d148247b22be08e22454c10491228811f2b3c1bd
+SHA256: 8020aaee57888c4b25f85606fc7087f48c44e5e1a274746b4aa52e6b783635e5
 Section: main
 Priority: optional
 Multi-Arch: foreign
@@ -106,9 +106,9 @@ Installed-Size: 3052
 Depends: libc6 (>= 2.34), libevent-2.1-7 (>= 2.1.8-stable), libgcc-s1 (>= 3.3), libpcre3, libsqlite3-0 (>= 3.6.11), libssl3 (>= 3.0.0~~alpha1), libxml2 (>= 2.7.4), zlib1g (>= 1:1.1.4)
 Filename: ./kadalu-storage-manager_1.1.0-beta.2-1_arm64.deb
 Size: 997058
-MD5sum: d6a7d3dde71b762612b352aecda403d9
-SHA1: 488799f1e18ab6696228e2453bb7e1161e426755
-SHA256: cfce2ef0e1fea28659ca571317b8132d41bb77bc238d5b325adce37740a42129
+MD5sum: de2f49c3e7c87b7d977bba6ab1e49c69
+SHA1: 451ec1dea0271ebdf3ea856ba10c263efc9c542d
+SHA256: 45559749b589e1dacaa3acece622ffecc93acf575c1c675829e52b54c558d58e
 Section: main
 Priority: optional
 Multi-Arch: foreign
