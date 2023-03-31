@@ -1,0 +1,202 @@
+Package: kadalu-storage
+Version: 1.1.0-beta.2-1
+Architecture: amd64
+Maintainer: Kadalu Software Private Limited <packaging@kadalu.tech>
+Installed-Size: 15433
+Pre-Depends: dpkg (>= 1.15.6~)
+Depends: attr, fuse, kadalu-storage-manager, libacl1-dev, libgoogle-perftools-dev, lsb-base (>= 3.0-6), psmisc, python3-jwt, python3-prettytable, python3-requests, libacl1 (>= 2.2.23), libaio1 (>= 0.3.93), libc6 (>= 2.34), libssl3 (>= 3.0.0~~alpha1), libtcmalloc-minimal4, libtirpc3 (>= 1.0.2), liburcu8 (>= 0.13.0), libuuid1 (>= 2.16), libxml2 (>= 2.7.4), zlib1g (>= 1:1.1.4)
+Conflicts: glusterfs-client, glusterfs-common, glusterfs-server, libglusterfs-dev, libglusterfs0
+Replaces: kadalu-storage
+Filename: ./kadalu-storage_1.1.0-beta.2-1_amd64.deb
+Size: 3211302
+MD5sum: 2054b9f7692ede3048f483affb87b269
+SHA1: 85046b7b83fd7b86c00f566b0fbbe71a1a0d1f99
+SHA256: c97de77a01f9b18fa717a0749e54fd93572770fca0731bf920820bff928206a3
+Section: admin
+Priority: optional
+Homepage: http://www.kadalu.tech
+Description: Kadalu Storage is an Opinionated distributed filesystem
+  based on GlusterFS.
+
+Package: kadalu-storage
+Version: 1.1.0-beta.2-1
+Architecture: arm64
+Maintainer: Kadalu Software Private Limited <packaging@kadalu.tech>
+Installed-Size: 14209
+Pre-Depends: dpkg (>= 1.15.6~)
+Depends: attr, fuse, kadalu-storage-manager, libacl1-dev, libgoogle-perftools-dev, lsb-base (>= 3.0-6), psmisc, python3-jwt, python3-prettytable, python3-requests, libacl1 (>= 2.2.23), libaio1 (>= 0.3.93), libc6 (>= 2.34), libssl3 (>= 3.0.0~~alpha1), libtcmalloc-minimal4, libtirpc3 (>= 1.0.2), liburcu8 (>= 0.13.0), libuuid1 (>= 2.16), libxml2 (>= 2.7.4), zlib1g (>= 1:1.1.4)
+Conflicts: glusterfs-client, glusterfs-common, glusterfs-server, libglusterfs-dev, libglusterfs0
+Replaces: kadalu-storage
+Filename: ./kadalu-storage_1.1.0-beta.2-1_arm64.deb
+Size: 3057760
+MD5sum: 37f2a4e64aa5609bd2d5e52d3c4a42ec
+SHA1: 15604d13ac712e51690fea950434b632fa8d389d
+SHA256: 9686a9dd4568c0ec782a14b5159737681395e3063fd361c1715bb9682014e60d
+Section: admin
+Priority: optional
+Homepage: http://www.kadalu.tech
+Description: Kadalu Storage is an Opinionated distributed filesystem
+  based on GlusterFS.
+
+Package: kadalu-storage-dbg
+Source: kadalu-storage
+Version: 1.1.0-beta.2-1
+Architecture: arm64
+Maintainer: Kadalu Software Private Limited <packaging@kadalu.tech>
+Installed-Size: 17753
+Pre-Depends: dpkg (>= 1.15.6~)
+Depends: kadalu-storage (= 1.1.0-beta.2-1)
+Conflicts: glusterfs-dbg
+Filename: ./kadalu-storage-dbg_1.1.0-beta.2-1_arm64.deb
+Size: 15758534
+MD5sum: 768e073fbd9954be5679c0532357a8b6
+SHA1: b5b8aa551b38aa95bdcf7483c655f2bb49eb1cc9
+SHA256: ce1f8ace84bdeeeb33a1996ce9514b10f68a0cff66307626a9bd6c65e15b3d46
+Section: debug
+Priority: extra
+Homepage: http://www.kadalu.tech
+Description: Kadalu Storage debugging symbols
+ This package includes the debugging symbols.
+Build-Ids: 028038a42fe03091d1e7e3202a63bc12a8aaac5c 09e8db3e9a7e8fc02605ae1c467111fc7ca17ee5 0e1628c5e9ace8bf795712d2585e0bdd182ce7d3 159a6827024bf1fd3a4fae310cd0614a4b9e2a01 204fd269e8ef747e479f057f4da83fbc451c7147 2573a8f756a1f5a74967b8564bcca2fd92c30243 2ca0d6047e31ea321db6cde25d469fbd0ddeda1f 304820048a2b3926bd47181b896be077120712d3 359bbcb16533384c603909a6f48a6e492347913d 379e0ec1850c1c6494f2c3eb4d1eafa47c2efa06 39476f8dfbb86ffcadd0b8626fc58bd91981289f 3997b577d9963ee933e95db778ce023eb1b12c01 404cb3d44384e35248c4ed7266d4928e6a8a7a4f 43d648d402b3f08c991886efd1e1ffd68458163c 4777532f5fbf0538ac23feb49da59ee340e7f076 4a41796da4d92b82136774a8f7b10527fa4a7abb 4a428e49ea9878f2840ef6af8b345bfb8771ca96 4b77c768ccf5eaa8b66b7b508460211f10cbff14 4c09c8851f3c11446b71d930d5edf7d4ae668f09 4e1f75d73910bb1c629893ff0ab2e43bed62642c 4f783406092bdd19a55e011d991a661384792720 5a316df970d09cc237f0271f782b4bdab2937806 5c8c2ac390f710c88e4e217cce671174aa62fd69 66511d1ccfa2dcffc91696219e9cf4d7529cfbeb 66b63d70fb319529489c7504ca3c4e476a5518e8 679930646f20296a302b3dc4a490d34b9e905794 6864e4cb4036c932b0ab27f357255cd6acd3217f 7342bc8c3c9790546dd7faa4313066e813f46ae3 7470446f03a09608ea2470e443ccdb969eeb854a 77ac9972645d991e2d715c4186e29251855aa73f 7b6f439720d066405d485011b943cc56714dd866 7bc01505764472514b67d2eec4444967eaed206e 8729d12d126f7e94a92eba92716eedddd821925b 8875fc15f1b4070f22340ae6a89e7b59274237de 8927c48a230e8d9da78f4ab8ce2664199fc0fd49 90546df6ac10287700c582c78124a4a982301c7f 905bed2c01a1ba0fbeaac8b6da414e64f578a067 9139a2838296d4be26e58a57ca92d42807999313 99c67399a665d418712feda9740b3bab8705acf1 9a0a7095f1faf6222108942eafed44ce1f268429 9a18e6c2ced0d070bc82439ac603473cdba12118 9f1f134627b58febb35f6a95376dea51b1453019 9f772612c1334ce59cdacb8f037b4a33fd4010c2 a31d9ae728cf026b3ba1734770793612a8e19e7a a8375d95fe9e138bdc4401e79cfbfef99eaa052b a8b503cb4cf4f8e252b2e1b1bbe0919dce37bf72 b2194835e3f022114f3d841ec5398cba3e7947ae b5ef685f30c58b2e3145ef308588c6aaa98ca12f bdf1aa20c396c693f17561e0ee069675b005b329 c0c876580ddc8d6ed7e85fdb62f9d463eeb16f7e c1d47b8b79f413911fe0ef58fe9fee0176d35ea1 c2178c452e6edd021c6a69ba8acca75231468a72 c2f1119fb58c9d084651c90728043a0d38279e72 c327e7d6e01b8c1372ba2aadf3cc8ff15ee5164c c67f6e012f0a6aca10c4ac653b4adbaf22870596 d29d12ed3a5c902bbf7e476621d851ec7c0af6ed d2d198e06beb985be8e1666a06ccaf6b1e36d263 dcdb06e2fd6f93aa8ebef5118c0c8ee2b3da0036 dceef2a5935dc66adf3c472b20b527174391f420 e8fbef1894f1fd93c3dad32fdfa935c954eec941 eef75d27b6a571ca59d1227293e570f56eeea6a9 ef31bae8b5ee09c64ff7290a727824ef336e6c2c f56ee2d114ca638b2c5e42a42863c471702a936a fc0c06d14693dfc0476cdbb480b8444ae85449dd fca25acd121554a5dbf9d18411c1b43d5831b413
+
+Package: kadalu-storage-dbg
+Source: kadalu-storage
+Version: 1.1.0-beta.2-1
+Architecture: amd64
+Maintainer: Kadalu Software Private Limited <packaging@kadalu.tech>
+Installed-Size: 17595
+Pre-Depends: dpkg (>= 1.15.6~)
+Depends: kadalu-storage (= 1.1.0-beta.2-1)
+Conflicts: glusterfs-dbg
+Filename: ./kadalu-storage-dbg_1.1.0-beta.2-1_amd64.deb
+Size: 15759838
+MD5sum: fd084f1f087228921114f0ba7dc18a01
+SHA1: 74a7f743a5d5dca1e19ad84515b4e02acf012847
+SHA256: ca906c8e500f8a5b44577ca3c4142b9de25ddba5e68f379ca216c0ec6f6a058b
+Section: debug
+Priority: extra
+Homepage: http://www.kadalu.tech
+Description: Kadalu Storage debugging symbols
+ This package includes the debugging symbols.
+Build-Ids: 01d8a67e3d4e8436830f8ab195f74f6a40869471 0212fd9461b6adeff5375f6253f567a594349829 07a2ebb83b5ae3b42f466e9d271f6410e4847291 0d7fb1b46545ea79572079345ac23f3e9a329b88 1327bf69cdd5dd4318aa079f9c1f16a2665214c0 1650c9005d1f473baf56e25dc923b164f4b4ce11 16b706ef83ea5712cbf65aa9e619aa269ceed64f 1707052fc38027a2a6b68ccf17ba4da8e24bb0b2 1e507d96c6c8a5dab59f20f367d1fd8bbf03114b 22538ea93c02071103a3352add97816bb5aa9277 231fd8c44f27546a53133bbe8eab5e9c6e0e7a34 25e880e28383e24c323ca397a04c4e2585f76335 31549ee6ffc5d111024ea7a8b280ae2ea40f4d80 391238d51bbb814a517d6d1977e6ee5aa50613b5 3ac7eae149f05426857041fc93ec7a11346a8702 3d05499963a6225b22b853092623f6cb21febb2b 410ba2dbbc4817bb709cebf765db1da57df4ea2c 43ed52dfbd789277939e240eabbfb2c451203380 4402b257ca1fc645d3d3aa028a2bf56aeb86761b 5afcc4a7c2427dbc9b8a18f91e8d125744df4faa 62c90a959134c3c206ac98fc89bcc7484b1d869a 690d58eddc434e3432761c03f1997f94f3524769 6abb7436204c59954c6fac07532db25f6b2398e8 71d3895de38d80383598a1c6c1f919ee316cb6d0 71d82902a249c4eb5af3f6de5e031f617d105a99 743cfaea291406f0d5b3313f22f786916fe10668 76061645877c0e652755460b7d5b875a3d54d3bd 799a69f8809b0e89ffa524ceff3fae98d050a29f 7b9e303d5f6d0c29186ff8c5e5849f3194e80aac 7bd6bd19ba1684341cba2462595b5a880769dacc 7f5a61b8b0a1ae6f6c1de58ca4cb671632d7153d 7f78396d0c829b576479876103d8a245f5c33b28 88303a66f01e7583518609f87c5dcacc14439b7e 8b676b86f345742630cf6d0ed82ce0d794b80bc0 8bc505e0fd7319f48ddbae418660990e54a4df1d 8cc08484a9e683288faa3a4382828456db3c010f 90009f77c6cca11d3c72aa112e6962dd475d65b5 91f076313eb8ad4c6db9582f503d9dd417347ac1 931da59a03de853e7352232020d49926c5814960 9753c35acfa79e5f9d81afd72b964a6bf9f8d20e 9953e5f7fc5b741a12ad111d2ef5b4c1ae3f1541 9ac75eaa285e44de0b87e001d66e5ca5d3fd192e 9b886a5255f95be2c02db3ebe678e6e17850644c 9e4ff44ad1904ec41dc7bc94a1232f071744f94d a3a284cefe5ad9eac02eaa386b9846e77d57f1b9 a3b24518e18ac1a682290aba0749525d472d1523 a9c209fd4ddd6373f26087348fe6d8c855831d4d abe02950e36c0a0339493a43a0921627684115e9 af04df852fb634c0924f46137fd5d28748496151 b9542e03fe145990bdc9efa7b628bb54fda746e8 bccea5c3efb105c821825b5aa2c3c3a4578cd364 c453852acd3177e21630efc8a4ac6ee4c4e1860a c7425c490256dee4e0f5cd8ef81c2a254824fc72 ccfbc06b00ce4011221075a4c425e43d989b6949 cd6b32a05a0bfd3d53d80c65a0e45eae0767c66e d65401d94a190bffe8007d93f56f1e226efe9e61 dcfd470409093050e431040f15550cea18e96b44 de5f033ea94dfa47ba942c3a17136e9a7ff687e2 e018bc23173fc6e9e0ceab6536aef9d757a4348c e1e10c62aa7171bb2ac470c4874bec2f215052ca e2832a18a39e01e93dc2290a72b809fe5a672492 e98b5a2a283b5a506a08ff4070fb4ace1a9b4152 ea763189b857e688a531a7bf5f1f9db8d5aaa355 f5665b11a30a1f74130206e17cc8c77ba8c205dd fa472de5e7fa44ebd59a85f30fb4ff34cc3c626e
+
+Package: kadalu-storage-manager
+Version: 1.1.0-beta.2-1
+Architecture: amd64
+Maintainer: Kadalu Technologies Private Limited <packaging@kadalu.tech>
+Installed-Size: 3549
+Depends: libc6 (>= 2.34), libevent-2.1-7 (>= 2.1.8-stable), libgcc-s1 (>= 3.3), libpcre3, libsqlite3-0 (>= 3.6.11), libssl3 (>= 3.0.0~~alpha1), libxml2 (>= 2.7.4), zlib1g (>= 1:1.1.4)
+Filename: ./kadalu-storage-manager_1.1.0-beta.2-1_amd64.deb
+Size: 1109760
+MD5sum: 577da898c03b4121e82cc261473e42b6
+SHA1: 6fb82f870818e0f208f3afd3b183b2e5522dee22
+SHA256: 72850dffdd8014533dba24dcdb367d4c615fdb27ee8fd6f98bb7152370f42963
+Section: main
+Priority: optional
+Multi-Arch: foreign
+Homepage: <https://github.com/kadalu/moana>
+Description: Kadalu Storage Manager is a frontend for the Kadalu Storage.
+    Moana provides tools for setting up and managing the Kadalu cluster.
+
+Package: kadalu-storage-manager
+Version: 1.1.0-beta.2-1
+Architecture: arm64
+Maintainer: Kadalu Technologies Private Limited <packaging@kadalu.tech>
+Installed-Size: 3052
+Depends: libc6 (>= 2.34), libevent-2.1-7 (>= 2.1.8-stable), libgcc-s1 (>= 3.3), libpcre3, libsqlite3-0 (>= 3.6.11), libssl3 (>= 3.0.0~~alpha1), libxml2 (>= 2.7.4), zlib1g (>= 1:1.1.4)
+Filename: ./kadalu-storage-manager_1.1.0-beta.2-1_arm64.deb
+Size: 997058
+MD5sum: d6a7d3dde71b762612b352aecda403d9
+SHA1: 488799f1e18ab6696228e2453bb7e1161e426755
+SHA256: cfce2ef0e1fea28659ca571317b8132d41bb77bc238d5b325adce37740a42129
+Section: main
+Priority: optional
+Multi-Arch: foreign
+Homepage: <https://github.com/kadalu/moana>
+Description: Kadalu Storage Manager is a frontend for the Kadalu Storage.
+    Moana provides tools for setting up and managing the Kadalu cluster.
+
+Package: nfs-ganesha-kadalu
+Version: 1.1.0-beta.2-1
+Architecture: amd64
+Maintainer: Kadalu Technologies Private Limited <packaging@kadalu.tech>
+Installed-Size: 123
+Depends: kadalu-storage, nfs-ganesha, libacl1 (>= 2.2.23), libc6 (>= 2.34), liburcu8 (>= 0.13.0)
+Filename: ./nfs-ganesha-kadalu_1.1.0-beta.2-1_amd64.deb
+Size: 41674
+MD5sum: 2cd778ecde6cee107495d0ec2b14ebe0
+SHA1: 4af76c6ad46204d75d3e92b5534480a8a80234cb
+SHA256: 45d29a89f08828c657ae9141fad7f38dafaef0cf940d15cb1a8789e03dfa2c73
+Section: libs
+Priority: optional
+Multi-Arch: same
+Homepage: https://kadalu.tech
+Description: nfs-ganesha fsal gluster libraries
+ NFS-GANESHA is a NFS Server running in user space with a large cache.
+ It comes with various backend modules to support different file systems
+ and namespaces. Supported name spaces are POSIX, PROXY, SNMP, FUSE-like,
+ HPSS, LUSTRE, XFS and ZFS.
+ .
+ This package contains a library for FSAL_GLUSTER and an example .conf file
+
+Package: nfs-ganesha-kadalu
+Version: 1.1.0-beta.2-1
+Architecture: arm64
+Maintainer: Kadalu Technologies Private Limited <packaging@kadalu.tech>
+Installed-Size: 111
+Depends: kadalu-storage, nfs-ganesha, libacl1 (>= 2.2.23), libc6 (>= 2.34), liburcu8 (>= 0.13.0)
+Filename: ./nfs-ganesha-kadalu_1.1.0-beta.2-1_arm64.deb
+Size: 37456
+MD5sum: 95f51c61744e991d8fb16e40db099afb
+SHA1: d8af91d8ff3cfc30cd289e33beb7a7811bcd3a14
+SHA256: b161768029125e3681da537263ec1ba6959f29f1c2ea2297dcf63a5ff5d0636f
+Section: libs
+Priority: optional
+Multi-Arch: same
+Homepage: https://kadalu.tech
+Description: nfs-ganesha fsal gluster libraries
+ NFS-GANESHA is a NFS Server running in user space with a large cache.
+ It comes with various backend modules to support different file systems
+ and namespaces. Supported name spaces are POSIX, PROXY, SNMP, FUSE-like,
+ HPSS, LUSTRE, XFS and ZFS.
+ .
+ This package contains a library for FSAL_GLUSTER and an example .conf file
+
+Package: python3-kadalu-storage
+Source: kadalu-storage-manager
+Version: 1.1.0-beta.2-1
+Architecture: amd64
+Maintainer: Kadalu Technologies Private Limited <packaging@kadalu.tech>
+Installed-Size: 9
+Depends: python3-urllib3
+Filename: ./python3-kadalu-storage_1.1.0-beta.2-1_amd64.deb
+Size: 1682
+MD5sum: f0ba8a3d2db888dd334ef44c1395b486
+SHA1: 1fc62280107ad83e6ef6f7456256fc90bc5d4cf1
+SHA256: 5a6046b24e88bacfb23c3f9ffdcc9acfb66454faec439a2e170a5eb504f45c3e
+Section: libs
+Priority: optional
+Multi-Arch: foreign
+Homepage: <https://github.com/kadalu/moana>
+Description: Kadalu Storage Client is a SDK in Python for developers to
+    build tools atop Kadalu.
+
+Package: python3-kadalu-storage
+Source: kadalu-storage-manager
+Version: 1.1.0-beta.2-1
+Architecture: arm64
+Maintainer: Kadalu Technologies Private Limited <packaging@kadalu.tech>
+Installed-Size: 9
+Depends: python3-urllib3
+Filename: ./python3-kadalu-storage_1.1.0-beta.2-1_arm64.deb
+Size: 1684
+MD5sum: dbbb0768aa7da9c98ee79d735f462fce
+SHA1: ca5cbadb36cce2858ece319646468af8f0c8d3ff
+SHA256: d72a3bedaf559c6a7b1b97c56d6f6bc5293d008a003e53ccd064b40c8ef3c663
+Section: libs
+Priority: optional
+Multi-Arch: foreign
+Homepage: <https://github.com/kadalu/moana>
+Description: Kadalu Storage Client is a SDK in Python for developers to
+    build tools atop Kadalu.
+
