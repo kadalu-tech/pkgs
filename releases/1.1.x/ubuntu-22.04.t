@@ -120,7 +120,7 @@ containers.each do |container|
   # Build GlusterFS
   build_deb_package "/root/build/glusterfs", GLUSTERFS_TAG, "kadalu-storage", PKG_VERSION
 
-  arch = containers[0].split("_")[-1]
+  arch = container.split("_")[-1]
   TEST "apt install -y /root/build/kadalu-storage-manager_#{PKG_VERSION}-1_#{arch}.deb"
   TEST "apt install -y /root/build/kadalu-storage_#{PKG_VERSION}-1_#{arch}.deb"
   # Build NFS Ganesha Kadalu
