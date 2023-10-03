@@ -1,0 +1,22 @@
+nfs-ganesha-kadalu (1.2.0-1) UNRELEASED; urgency=low
+  * New release to match Glusterfs fixes
+
+ -- Kadalu Technologies Pvt Limited <packaging@kadalu.tech>  Tue, 03 Oct 2023 21:20:07 +0530
+
+nfs-ganesha-kadalu (1.1.0-1) UNRELEASED; urgency=low
+
+  * First Release
+
+ -- Kadalu Technologies Pvt Limited <packaging@kadalu.tech>  Wed, 05 Apr 2023 18:33:07 +0530
+
+nfs-ganesha-kadalu (1.1.0-beta.2-1) UNRELEASED; urgency=low
+
+  * Intial Release
+
+ -- Kadalu Technologies Pvt Limited <packaging@kadalu.tech>  Thu, 30 Mar 2023 21:07:07 +0530
+
+nfs-ganesha-kadalu (1.0-1) UNRELEASED; urgency=low
+
+  * Intial Release
+
+ -- Kadalu Technologies Private Limited <packaging@kadalu.tech>  Fri, 2 Feb 2023 09:45:51 -0400

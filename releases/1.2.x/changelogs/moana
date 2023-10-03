@@ -1,0 +1,45 @@
+kadalu-storage-manager (1.2.0-1) UNRELEASED; urgency=low
+  * New release to match Glusterfs fixes
+
+ -- Kadalu Technologies Pvt Limited <packaging@kadalu.tech>  Tue, 03 Oct 2023 21:20:07 +0530
+
+kadalu-storage-manager (1.1.0-1) UNRELEASED; urgency=low
+
+  * Pool expand and Rebalance support
+  * NFS Ganesha integration
+  * Volfile server added
+  * New volgen library
+  * Port reservations cleanup after volume delete
+  * Disperse Pool fixes
+  * Volume to Pool name changes
+  * Systemd based service management
+  * Warning added while creating a distributed Pool
+  * Ubuntu 22.04 amd64/arm64 packages
+  * Logging improvements
+
+ -- Kadalu Technologies Pvt Limited <packaging@kadalu.tech>  Wed, 05 Apr 2023 18:24:07 +0530
+
+kadalu-storage-manager (1.1.0-beta.2-1) UNRELEASED; urgency=low
+
+  * Full list of Changes here https://github.com/kadalu/moana/blob/main/CHANGELOG.adoc
+
+ -- Kadalu Technologies Pvt Limited <packaging@kadalu.tech>  Thu, 30 Mar 2023 21:07:07 +0530
+
+kadalu-storage-manager (1.0.0-1) UNRELEASED; urgency=low
+
+  * First GA release of Kadalu Storage manager
+  * Full list of Changes here https://github.com/kadalu/moana/blob/main/CHANGELOG.adoc
+
+ -- Kadalu Technologies Pvt Limited <packaging@kadalu.tech>  Wed, 30 Nov 2022 07:07:10 +0530
+
+kadalu-storage-manager (1.0.0-beta.2-1) UNRELEASED; urgency=low
+
+  * Beta 2 release
+
+ -- Kadalu Technologies Pvt Limited <packaging@kadalu.tech>  Thu, 03 Nov 2022 16:01:17 +0530
+
+kadalu-storage-manager (1.0.0-beta.1-1) UNRELEASED; urgency=low
+
+  * Initial release
+
+ -- Kadalu Technologies Pvt Limited <packaging@kadalu.tech>  Fri, 05 Aug 2022 12:28:17 +0530
