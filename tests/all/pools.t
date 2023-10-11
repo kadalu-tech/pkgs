@@ -2,8 +2,9 @@
 
 load "#{File.dirname(__FILE__)}/../reset.t"
 
+EMIT_STDOUT true
 USE_REMOTE_PLUGIN "docker"
-nodes = ["server1", "server2", "server3"]
+nodes = ["#{ENV["ARCH"]}-server1", "#{ENV["ARCH"]}-server2", "#{ENV["ARCH"]}-server3"]
 
 nodes.each do |node|
   USE_NODE node
@@ -12,7 +13,7 @@ nodes.each do |node|
 end
 
 USE_NODE nodes[0]
-puts TEST "curl -i http://server1:3000/ping"
+puts TEST "curl -i http://#{ENV["ARCH"]}-server1:3000/ping"
 puts TEST "kadalu user create admin --password=kadalu"
 puts TEST "kadalu user login admin --password=kadalu"
 puts TEST "kadalu pool create DEV"

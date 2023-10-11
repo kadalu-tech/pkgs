@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -10,4 +10,4 @@ RUN echo "root:kadalu" | chpasswd
 
 RUN systemctl mask getty.target
 
-cmd ["/usr/sbin/init"]
+CMD ["/usr/sbin/init"]

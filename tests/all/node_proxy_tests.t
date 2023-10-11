@@ -2,8 +2,9 @@
 
 load "#{File.dirname(__FILE__)}/../reset.t"
 
+EMIT_STDOUT true
 USE_REMOTE_PLUGIN "docker"
-nodes = ["server1", "server2", "server3"]
+nodes = ["#{ENV["ARCH"]}-server1", "#{ENV["ARCH"]}-server2", "#{ENV["ARCH"]}-server3"]
 
 nodes.each do |node|
   USE_NODE node
@@ -34,7 +35,7 @@ USE_NODE nodes[1]
 puts TEST "kadalu user login admin --password=kadalu"
 
 # Distribute
-TEST "kadalu volume create DEV/vol1 server1:/exports/vol1/s1 server2:/exports/vol1/s2 server3:/exports/vol1/s3"
+TEST "kadalu volume create DEV/vol1 #{nodes[0]}:/exports/vol1/s1 #{nodes[1]}:/exports/vol1/s2 #{nodes[2]}:/exports/vol1/s3"
 
 nodes.each do |node|
   USE_NODE node
@@ -46,7 +47,7 @@ end
 USE_NODE nodes[1]
 TEST "mkdir /mnt/vol1"
 TEST "chattr +i /mnt/vol1"
-TEST "mount -t kadalu #{nodes[1]}:DEV/vol1 /mnt/vol1"
+TEST "mount -t kadalu DEV/vol1 /mnt/vol1"
 
 TEST "echo \"Hello World\" > /mnt/vol1/f1"
 # TODO: Validate this value below

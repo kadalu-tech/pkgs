@@ -1,7 +1,8 @@
 # -*- mode: ruby -*-
 
+EMIT_STDOUT true
 USE_REMOTE_PLUGIN "docker"
-nodes = ["server1", "server2", "server3"]
+nodes = ["amd-server1", "amd-server2", "amd-server3", "arm-server1", "arm-server2", "arm-server3"]
 
 nodes.each do |node|
   USE_NODE node
